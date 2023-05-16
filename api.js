@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/api') {
+  if (req.url === '/api' && req.method === 'GET') {
     const filePath = path.join(__dirname, 'data.json');
   
     fs.readFile(filePath, 'utf8', (err, data) => {
